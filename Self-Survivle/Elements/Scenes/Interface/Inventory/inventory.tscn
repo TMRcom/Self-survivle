@@ -1,0 +1,154 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0oy3n0lxfqii"]
+
+[ext_resource type="Script" uid="uid://cn0w5tg7r5ejw" path="res://Elements/Scripts/Plr/Interface/Inventory/inventory.gd" id="1_6f4xl"]
+[ext_resource type="Texture2D" uid="uid://bs4yurk6at126" path="res://Elements/Texture Assets/Interface/Darkness.svg" id="2_bfj0a"]
+[ext_resource type="Texture2D" uid="uid://cu7gwb0ebvrge" path="res://Elements/Texture Assets/Interface/inventory/resourses/materials/Wood.svg" id="3_ouf8e"]
+[ext_resource type="Texture2D" uid="uid://5id8pcw685nf" path="res://Elements/Texture Assets/Interface/inventory/craft/WoodenPickCraft.svg" id="4_k14nn"]
+[ext_resource type="Texture2D" uid="uid://8ltrjvoxx34l" path="res://Elements/Texture Assets/Interface/EmptySlot.svg" id="5_ll2g1"]
+
+[node name="inventory" type="Control"]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6f4xl")
+
+[node name="inventory" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 0.991
+anchor_bottom = 0.992
+offset_right = -0.578125
+offset_bottom = 0.207947
+
+[node name="TextureRect" type="TextureRect" parent="inventory"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -19.0
+offset_top = -22.0
+offset_right = 1223.0
+offset_bottom = 675.0
+texture = ExtResource("2_bfj0a")
+
+[node name="Resourses" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Resourses"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 9.0
+offset_right = 156.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 28
+text = "Ресурсы"
+
+[node name="Wood" type="Control" parent="Resourses"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Icon" type="TextureRect" parent="Resourses/Wood"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 65.0
+offset_right = 133.0
+offset_bottom = 115.0
+texture = ExtResource("3_ouf8e")
+
+[node name="Counter" type="Label" parent="Resourses/Wood"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 63.0
+offset_right = 190.0
+offset_bottom = 118.0
+theme_override_font_sizes/font_size = 40
+text = "1"
+vertical_alignment = 3
+
+[node name="Crafts" type="Control" parent="."]
+layout_mode = 1
+anchor_left = -0.018
+anchor_top = -0.041
+anchor_right = -0.018
+anchor_bottom = -0.041
+offset_left = -0.155998
+offset_top = -0.309
+offset_right = 1040.84
+offset_bottom = 694.691
+
+[node name="WoodenPickCraft" type="Control" parent="Crafts"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WoodenPickCraftButton" type="Button" parent="Crafts/WoodenPickCraft"]
+modulate = Color(0.231518, 0.231518, 0.231518, 1)
+layout_mode = 0
+offset_left = 854.0
+offset_top = 221.0
+offset_right = 923.0
+offset_bottom = 290.0
+icon = ExtResource("4_k14nn")
+
+[node name="Items" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -2.0
+offset_right = 1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Items"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 21.0
+offset_top = 109.0
+offset_right = -275.0
+offset_bottom = -434.0
+theme_override_font_sizes/font_size = 28
+text = "Предметы"
+
+[node name="ItemList" type="ItemList" parent="Items"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 16.0
+offset_top = 164.0
+offset_right = 435.0
+offset_bottom = 629.0
+theme_override_font_sizes/font_size = 24
+item_count = 7
+item_0/text = "Пусто"
+item_0/icon = ExtResource("5_ll2g1")
+item_1/text = "Пусто"
+item_1/icon = ExtResource("5_ll2g1")
+item_2/text = "Пусто"
+item_2/icon = ExtResource("5_ll2g1")
+item_3/text = "Пусто"
+item_3/icon = ExtResource("5_ll2g1")
+item_3/disabled = true
+item_4/text = "Пусто"
+item_4/icon = ExtResource("5_ll2g1")
+item_4/disabled = true
+item_5/text = "Пусто"
+item_5/icon = ExtResource("5_ll2g1")
+item_5/disabled = true
+item_6/text = "Пусто"
+item_6/icon = ExtResource("5_ll2g1")
+item_6/disabled = true
+
+[connection signal="button_down" from="Crafts/WoodenPickCraft/WoodenPickCraftButton" to="." method="_on_wooden_pick_craft_button_button_down"]
+[connection signal="item_activated" from="Items/ItemList" to="." method="_on_item_list_item_activated"]

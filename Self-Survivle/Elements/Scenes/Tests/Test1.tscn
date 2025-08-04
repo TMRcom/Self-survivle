@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://01vk6r0n7ioq"]
+
+[ext_resource type="PackedScene" uid="uid://bsk5ty8jybk72" path="res://Elements/Scenes/Plr/Plr/plr.tscn" id="1_0xu4a"]
+[ext_resource type="PackedScene" uid="uid://d0hgfk4o6qh4m" path="res://Elements/Scenes/structures/nature/ore/tree.tscn" id="2_cvotm"]
+
+[node name="Test1" type="Node2D"]
+
+[node name="Tree" parent="." instance=ExtResource("2_cvotm")]
+position = Vector2(691, 174)
+
+[node name="Plr" parent="." instance=ExtResource("1_0xu4a")]
+position = Vector2(576, 323)

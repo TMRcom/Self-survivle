@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0hgfk4o6qh4m"]
+
+[ext_resource type="Script" uid="uid://bapqx8jao1w1h" path="res://Elements/Scripts/structures/nature/ore/tree.gd" id="1_01n6g"]
+[ext_resource type="Texture2D" uid="uid://xsvwwonwtubu" path="res://Elements/Texture Assets/Structures/nature/Ore/Tree/Tree.svg" id="1_5kcj6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0s22u"]
+radius = 18.1108
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c5bbr"]
+radius = 28.0179
+
+[node name="Tree" type="StaticBody2D"]
+z_index = 1
+script = ExtResource("1_01n6g")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_5kcj6")
+
+[node name="TreeHitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0s22u")
+
+[node name="PickUpTree" type="Area2D" parent="."]
+
+[node name="PickUpTreeHitbox" type="CollisionShape2D" parent="PickUpTree"]
+shape = SubResource("CircleShape2D_c5bbr")
+
+[node name="FramesOfImmortality" type="Timer" parent="."]
+
+[connection signal="area_entered" from="PickUpTree" to="." method="_on_pick_up_tree_area_entered"]
+[connection signal="area_exited" from="PickUpTree" to="." method="_on_pick_up_tree_area_exited"]
+[connection signal="timeout" from="FramesOfImmortality" to="." method="_on_frames_of_immortality_timeout"]

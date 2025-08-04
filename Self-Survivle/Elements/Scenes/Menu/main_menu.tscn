@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://fdhfd1mffequ"]
+
+[ext_resource type="Script" uid="uid://bdlwyxb5833r5" path="res://Elements/Scripts/Menu/MainMenu.gd" id="1_5qj8g"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_5qj8g")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button_Play" type="Button" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 486.0
+offset_top = 282.0
+offset_right = -488.0
+offset_bottom = -280.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+
+[node name="Button_Quit" type="Button" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 486.0
+offset_top = 388.0
+offset_right = -488.0
+offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[node name="SS Label" type="Label" parent="CanvasLayer"]
+offset_left = 426.0
+offset_top = 131.0
+offset_right = 745.0
+offset_bottom = 200.0
+theme_override_colors/font_color = Color(0.518097, 1.76279e-06, 1.92523e-07, 1)
+theme_override_font_sizes/font_size = 50
+text = "Self - survivle"
+
+[connection signal="pressed" from="CanvasLayer/Button_Play" to="." method="_on_button_play_pressed"]
